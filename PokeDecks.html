@@ -1,0 +1,735 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="PokeDecks email confirmation" author="Laura Walpole">
+        <title>PokeDecks - Order Confirmation</title>
+        
+    <style type="text/css">
+		p{
+			margin:10px 0;
+			padding:0;
+		}
+		table{
+			border-collapse:collapse;
+		}
+		h1,h2,h3,h4,h5,h6{
+			display:block;
+			margin:0;
+			padding:0;
+		}
+
+        /*'Thanks for your order' - First row of body*/
+		h1{
+			color:#222222;
+			font-family:'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-size:40px;
+			font-style:normal;
+			font-weight:bold;
+			line-height:150%;
+			letter-spacing:normal;
+			text-align:center;
+		}
+        /*'Hi customer'- second row of body*/
+		h2{
+            color:#949494;
+			font-family:'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-size:20px;
+			font-style:normal;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:center;
+            padding-top: 5px;
+            padding-left: 0px;
+            padding-right:0px;
+            padding-bottom: 5px;
+		/*'We have received your order...'*/	
+		}
+		h3{
+			color:#949494;
+			font-family:'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-size:20px;
+			font-style:none;
+			line-height:125%;
+			letter-spacing:normal;
+			text-align:center;
+            padding-top: 5px;
+            padding-left: 0px;
+            padding-right:0px;
+            padding-bottom: 5px;
+		}
+        /*'Please find details of your order below'*/
+		h4{
+			color:#222;
+			font-family:'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-size:  20px;
+            font-weight: normal;
+            text-align: center;
+			line-height:125%;
+			letter-spacing:normal;
+            padding-top: 10px;
+            padding-left: 0px;
+            padding-right:0px;
+            padding-bottom: 0px;
+		}
+
+        /*Header styling - consists of background and PokeDecks logo*/
+		#emailHeader{
+			background-color:#333333;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+            max-width: 700px;
+			background-size:cover;
+			border-top:0px;
+			border-bottom:10px solid #ffffff;
+			padding-top:0px;
+			padding-bottom:0px;
+		}
+
+		/*Container for email header*/
+		.headerContainer{
+			background-color:transparent;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+            max-width: 700px;
+			background-size:cover;
+			border-top: 0px;
+			border-bottom: 0px;
+			padding-top:0px;
+			padding-bottom:0px;
+		}
+		
+		img,a img{
+			border:0;
+			height:auto;
+			outline:none;
+			text-decoration:none;
+		}
+		/*
+        body must not exceed maximum width of 700px.
+        bodyTable creates container for email.
+        bodyCell is a single cell within the bodyTable.
+        */
+
+		body,#bodyTable,#bodyCell{
+			height:100%;
+			margin:0;
+			padding:0;
+			width:100%;
+			max-width: 700px;
+		}
+        ul{
+            list-style: none;
+        }
+        li{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 110%;
+        }
+        /*Default for all containers - must not exceed 700px*/
+		.Container{
+			max-width:700px;
+		}
+        .bodyContainer{
+            width: 100%;
+            min-width: 100%;
+        }
+	
+        .logoContainer{
+            width:50%;
+        }
+        .headerLogo{
+            width:50%;
+            padding-right: 9px;
+            padding-left: 9px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+        .pokeDecksLogo{
+            width: 100%;
+        }	
+    /* Styling for main body of email*/
+		#emailBody{
+			background-color:#f4f6fc;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+			border-top:0;
+			border-bottom:0;
+			padding-top:0;
+			padding-bottom:0;
+		}
+	/*Container within body of email*/
+		.bodyContainer{
+			background-color:#f4f6fc;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+			border-top:0;
+			border-bottom:0;
+			padding-top:0;
+			padding-bottom:0;
+		}
+    
+        .headerContainer{
+            align-content: center;
+            width:75%;
+            height:75%;
+            max-width:75%;
+            max-height: 75%;
+        }
+        .innerTextBlock{
+            padding-top:9px;
+        }
+        .imageBlock{
+            width:100%;
+        }
+
+		.headerImage_Outer{
+            display:inline-block;
+		}
+        .imageBlock{
+            min-width:100%;
+        }
+       .innerImageBlock{
+            padding: 9px;
+        }
+      
+       .emailIntro{
+        padding-top:0; 
+        padding-right:18px; 
+        padding-bottom:9px; 
+        padding-left:18px;
+       }
+        /*Block used within email body to highlight sections of order details */
+        .boxedContainer{
+            min-width: 100%;
+            background-color: #FFFFFF;
+        }
+
+        .boxedContainer_Outer{
+            padding-top:9px; 
+            padding-left:18px; 
+            padding-bottom:9px; 
+            padding-right:18px;
+        }
+
+        .textContentContainer{
+            min-width: 100%;
+            max-width: 100%;
+        }
+        .imageContentContainer{
+            min-width:100%;
+        }
+        .imageContent{
+            padding-right: 9px;
+            padding-left: 9px;
+            padding-top: 0; 
+            padding-bottom: 0;
+        }
+   
+	/*Image within main body*/
+		.emailImage{
+			width: 565px;
+			min-width: 100%;
+			max-width: 665px;
+			align-items: middle;
+			padding-bottom: 0px;
+			display: inline;
+			vertical-align: bottom;
+		}
+
+		.list{
+            font-style: none;
+			text-align: left;
+			color: #757575;
+			font-size: 16px;
+            letter-spacing: normal;
+		}
+
+		.priceSummary{
+			text-align: left;
+			list-style-type: none;
+			color: #333333;
+			padding:18px;
+			font-size: 14px;
+		}
+        .importantOrderDetails{
+			font-size: 16px;
+            color: #000;
+            font-style: bold;
+        }
+
+        .divider{
+            min-width:100%;
+        }
+        .lineDividerBlock{
+            min-width: 100%;
+            padding: 9px 18px;
+        }
+        .lineDivider{
+            min-width: 100%;
+            border-top: 1px solid
+            #505050;
+        }
+
+        .button{
+            min-width: 100%;
+        }
+        .innerButtonBlock{
+            padding-top:0;
+            padding-right:18px;
+            padding-bottom:18px;
+            padding-left:18px;
+        }
+        .buttonContainer{
+            border-radius: 3px;
+            background-color: #673AB7;
+        }
+        .buttonContent{
+            padding: 18px;
+            font-size: 18px;
+        }
+        .buttonBody{
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            color: #FFFFFF;
+        }
+	/*Email footer - uses same colour scheme as header*/
+		#templateFooter{
+			background-color:#333333;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+			border-top:0;
+			border-bottom:0;
+			padding-top:45px;
+			padding-bottom:63px;
+		}
+	/*Styling for container within footer
+	*/
+		.footerContainer{
+			background-color:transparent;
+			background-image:none;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:cover;
+			border-top:0;
+			border-bottom:0;
+			padding-top:0;
+			padding-bottom:0;
+		}
+
+		.footerContent{
+			text-align: center;
+            font-size: 12px;
+            line-height: 150%;
+			padding-top: 0;
+			padding-right:20px;
+			padding-bottom:0px;
+			padding-left:20px;
+			color: #ffffff;
+
+		}
+
+	
+	
+</style>
+</head>
+    <body>
+        <center>       
+         <table id="bodyTable" align="center" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td id="bodyCell" align="center" valign="top" ><!--Creates a single cell to fill the body table of the email --> 
+                        <table border="0" cellpadding="0" cellspacing="0" width="700px">
+                            <tr>
+                                <td id="emailHeader" align="center" valign="top" ><!--Creates header-->
+                                    <table  align="center" border="0" cellpadding="0" cellspacing="0" >
+                                        <tr>
+                                            <td valign="top" class="headerContainer">
+												<table class="imageBlock"  cellspacing="0" cellpadding="0" border="0">
+                                                    <tr>
+                                                        <td>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="InnerImageBlock" valign="top">
+                                                                        <table class="logoContainer" cellspacing="0" cellpadding="0" border="0" align="center">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="headerLogo" valign="top">
+                                                                                        <img class="pokeDecksLogo" alt="Poke decks logo" src="https://pokedecks.s3.us-west-2.amazonaws.com/pokeLogo.png" >
+                                                                                         </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                         </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+
+
+                         <tr>
+                             <td align="center" valign="top">
+                                   
+                                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td valign="top" class="bodyContainer">
+                                                <table class="textBlock" cellspacing="0" cellpadding="0" border="0">
+    <tbody>
+        <tr>
+            <td class="InnerTextBlock" style=;" valign="top">
+              	<table  class="TextContentContainer" width="100%" cellspacing="0" cellpadding="0" border="0" align="left">
+                    <tbody><tr>
+                        
+                        <td class="emailIntro" valign="top">
+    	                   <h1>Thank you for your order!</h1>
+						   <h2>Hi CUSTOMER FIRST NAME,</h2>
+							<h3>We have received your order and hope you enjoyed shopping with us!</h3>
+                            <h4>Please find details of your order below</h4>
+                        </td>
+                    </tr>
+                </tbody></table>
+			
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+    
+	<tbody>
+        <tr>
+            <td valign="top">             
+                <table style="min-width:100%;" width="100%" cellspacing="0" cellpadding="0" border="0" align="left">
+                    <tbody><tr>                        
+                        <td class="boxedContainer_Outer">                        
+                            <table class="boxedContainer" width="100%" cellspacing="0" border="0">
+                                <tbody><tr>
+                                    <td  valign="top">
+										<ul class="list">
+                                            <li>Order Number: </li>
+                                            <li>Order date: </li>
+											<li>Item:</li>
+											<li>Price:</li>
+											<li>Quantity:</li>
+										</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+						
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+    
+	<tbody>
+        <tr>
+            <td valign="top">             
+                <table style="min-width:100%;" width="100%" cellspacing="0" cellpadding="0" border="0" align="left">
+                    <tbody><tr>                        
+                        <td class="boxedContainer_Outer">                        
+                            <table class="boxedContainer" width="100%" cellspacing="0" border="0">
+                                <tbody><tr>
+                                    <td  valign="top">
+										<ul class="list">
+											<li>Sub-Total: </li>
+											<li>Delivery: </li>
+                                            </ul>
+                                            <table class="divider"  width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="lineDividerBlock">
+                                                            <table class="lineDivider"  width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                                <tbody><tr>
+                                                                    <td>
+                                                                        <span></span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <ul>
+                                                <li class="importantOrderDetails">Total Cost: </li>                                                                
+                                            </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </td>
+                    </tr>
+                </tbody></table>
+						
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+    
+	<tbody>
+        <tr>
+            <td valign="top">             
+                <table style="min-width:100%;" width="100%" cellspacing="0" cellpadding="0" border="0" align="left">
+                    <tbody><tr>                        
+                        <td class="boxedContainer_Outer">                        
+                            <table class="boxedContainer" width="100%" cellspacing="0" border="0">
+                                <tbody><tr>
+                                    <td  valign="top">
+                                        
+                                        <ul>
+                                            <li class="importantOrderDetails">Delivery Details</li>
+                                        </ul>
+										<ul class="list">
+											<li>Delivery Method:</li>
+											<li>Delivery Details:</li>
+										</ul>
+                                        <table class="divider"  width="100%" cellspacing="0" cellpadding="0" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="lineDividerBlock">
+                                                        <table class="lineDivider"  width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                            <tbody><tr>
+                                                                <td>
+                                                                    <span></span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <ul>
+                                            <li class="importantOrderDetails">Payment Details</li>
+                                        </ul>
+										<ul class="list">
+											<li>Payment Method:</li>
+                                        </ul>
+                
+
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+						
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="button"  width="100%" cellspacing="0" cellpadding="0" border="0">
+    <tbody>
+        <tr>
+            <td class="innerButtonBlock" valign="top" align="center">
+                <table class="buttonContainer" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="buttonContent" valign="middle" align="center">
+                                <a class="buttonBody " title="View Order" href="" >View Order</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="ImageBlock" width="100%" cellspacing="0" cellpadding="0" border="0">
+    <tbody class="ImageBlockOuter">
+            <tr>
+                <td style="padding:9px" valign="top">
+                    <table class="ImageContentContainer" width="100%" cellspacing="0" cellpadding="0" border="0" align="left">
+                        <tbody><tr>
+                            <td class="ImageContent" valign="top">
+                                
+                                    
+                                        <img class="imageMainBody"alt="" src="images/eevee.png" wi  align="middle">
+                                    
+                                
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table>
+
+
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top" id="templateFooter" data-template-container>
+                                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" class="templateContainer">
+                                        <tr>
+                                            <td valign="top" class="footerContainer"><table style="min-width:100%;" width="100%" cellspacing="0" cellpadding="0" border="0">
+    <tbody >
+        <tr>
+            <td style="padding:9px" valign="top" align="center">
+                <table  style="min-width:100%;" width="100%" cellspacing="0" cellpadding="0" border="0">
+    <tbody><tr>
+        <td style="padding-left:9px;padding-right:9px;" align="center">
+            <table style="min-width:100%;" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr>
+                    <td style="padding-top:9px; padding-right:9px; padding-left:9px;" valign="top" align="center">
+                        <table cellspacing="0" cellpadding="0" border="0" align="center">
+                            <tbody><tr>
+                                <td valign="top" align="center">
+                                        
+											<!--Facebook link-->
+                                            <table style="display:inline;" cellspacing="0" cellpadding="0" border="0" align="left">
+                                                <tbody><tr>
+                                                    <td style="padding-right:10px; padding-bottom:9px;"  valign="top">
+                                                        <table  width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                            <tbody><tr>
+                                                                <td style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;" valign="middle" align="left">
+                                                                    <table width="" cellspacing="0" cellpadding="0" border="0" align="left">
+                                                                        <tbody><tr>
+                                                                            
+                                                                                <td class="FollowIconContent" width="24" valign="middle" align="center">
+                                                                                    <a href="http://www.facebook.com" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-light-facebook-48.png" alt="Facebook" style="display:block;" class="" width="24" height="24"></a>
+                                                                                </td>
+                                                                            
+                                                                            
+                                                                        </tr>
+                                                                    </tbody></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>                                        
+                                                                      
+                                        
+											<!--Instagram link-->
+                                            <table style="display:inline;" cellspacing="0" cellpadding="0" border="0" align="left">
+                                                <tbody><tr>
+                                                    <td style="padding-right:10px; padding-bottom:9px;"  valign="top">
+                                                        <table class= width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                            <tbody><tr>
+                                                                <td style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;" valign="middle" align="left">
+                                                                    <table width="" cellspacing="0" cellpadding="0" border="0" align="left">
+                                                                        <tbody><tr>
+                                                                            
+                                                                                <td width="24" valign="middle" align="center">
+                                                                                    <a href="http://www.instagram.com/" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-light-instagram-48.png" alt="Link" style="display:block;" class="" width="24" height="24"></a>
+                                                                                </td>
+                                                                            
+                                                                            
+                                                                        </tr>
+                                                                    </tbody></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                        
+                                        <!--Website link-->
+                                            <table style="display:inline;" cellspacing="0" cellpadding="0" border="0" align="left">
+                                                <tbody><tr>
+                                                    <td style="padding-right:0; padding-bottom:9px;"  valign="top">
+                                                        <table  width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                            <tbody><tr>
+                                                                <td style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;" valign="middle" align="left">
+                                                                    <table width="" cellspacing="0" cellpadding="0" border="0" align="left">
+                                                                        <tbody><tr>
+                                                                            
+                                                                                <td  width="24" valign="middle" align="center">
+                                                                                    <a href="http://mailchimp.com" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-light-link-48.png" alt="Website" style="display:block;" class="" width="24" height="24"></a>
+                                                                                </td>
+                                                                            
+                                                                            
+                                                                        </tr>
+                                                                    </tbody></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table class="DividerBlock" style="min-width:100%;" width="100%" cellspacing="0" cellpadding="0" border="0">
+    <tbody class="DividerBlockOuter">
+        <tr>
+            <td class="DividerBlockInner" style="min-width:100%; padding:18px;">
+                <table class="DividerContent" style="min-width: 100%;border-top: 2px solid #505050;" width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tbody><tr>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+    </tbody>
+</table><table class="TextBlock" style="min-width:100%;" width="100%" cellspacing="0" cellpadding="0" border="0">
+    <tbody class="TextBlockOuter">
+        <tr>
+            <td class="TextBlockInner" style="padding-top:9px;" valign="top">
+                <table style="max-width:100%; min-width:100%;" class="mcnTextContentContainer" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+                    <tbody><tr>
+                        
+                        <td class="footerContent" valign="top">
+                        
+                            <em>Copyright © 2021 PokeDecks, All rights reserved.</em>
+<br>
+    <br>
+    <strong>For customer support please contact us at:</strong>
+    <br>
+    poke.decks.uk@gmail.com
+    <br>
+    
+
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <script type="text/javascript"  src="/7tfG/tfzg/ur/Wqra/9oKA/L59ONmhcih/aVNaAQ/NnxTIXJ/1GQgC"></script></body>
+</html>
